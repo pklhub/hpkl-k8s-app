@@ -15,6 +15,30 @@ env:
   HPKL_VERSION: 0.6.0
 
 jobs:
+  pkl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set version
+        id: vars
+        run: |
+          [[ "$GITHUB_REF" =~ ^refs/tags/v.*$ ]] && echo "tag=${GITHUB_REF#refs/*/v}" >> $GITHUB_OUTPUT || echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+          echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT      
+      - name: Create bin dir
+        run: | 
+          mkdir -p $HOME/.local/bin
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+      - name: Download pkl-lang
+        run: | 
+          curl -sSL https://github.com/apple/pkl/releases/download/${PKL_VERSION}/pkl-linux-amd64 -o $HOME/.local/bin/pkl
+          chmod +x $HOME/.local/bin/pkl
+      - name: Build & Publish
+        env:
+          PROJECT_VERSION: ${{ steps.vars.outputs.tag }}      
+        run: |
+          pkl project resolve
+          hkl project package
+          gh release upload .out/hpkl-k8s-app@$PROJECT_VERSION/hpkl-k8s-app@$PROJECT_VERSION.zip
   hpkl:
     runs-on: ubuntu-latest
     steps:
