@@ -32,6 +32,9 @@ jobs:
         run: | 
           curl -sSL https://github.com/apple/pkl/releases/download/${PKL_VERSION}/pkl-linux-amd64 -o $HOME/.local/bin/pkl
           chmod +x $HOME/.local/bin/pkl
+      - name: Replace baseUri
+        run: |
+          sed -i -e 's/package\:\/\/ghcr.io\/hpklio\/\\(name)/package\:\/\/pkg.hpkl.io\/\\(name)/g' PklProject
       - name: Build & Publish
         env:
           PROJECT_VERSION: ${{ steps.vars.outputs.tag }}      
@@ -39,6 +42,21 @@ jobs:
           pkl project resolve
           pkl project package
           gh release upload v$PROJECT_VERSION .out/hpkl-k8s-app@$PROJECT_VERSION/hpkl-k8s-app@$PROJECT_VERSION.zip
+      - uses: actions/checkout@v4
+        with:
+          repository: hpklio/packages
+          ref: 'main'
+          token:  ${{ secrets.PUBLISH_TOKEN }}    
+          path: 'packages'
+      - name: Publish metadata
+        env:
+          PROJECT_VERSION: ${{ steps.vars.outputs.tag }}      
+        run: |
+          cp .out/hpkl-k8s-app@$PROJECT_VERSION/hpkl-k8s-app@$PROJECT_VERSION packages/hpkl-k8s-app@$PROJECT_VERSION
+          cd packages
+          git add hpkl-k8s-app@$PROJECT_VERSION
+          git commit -m "Relase hpkl-k8s-app@$PROJECT_VERSION"
+          git push
   hpkl:
     runs-on: ubuntu-latest
     steps:
