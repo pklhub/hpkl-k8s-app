@@ -37,7 +37,7 @@ jobs:
           PROJECT_VERSION: ${{ steps.vars.outputs.tag }}      
         run: |
           pkl project resolve
-          hkl project package
+          pkl project package
           gh release upload .out/hpkl-k8s-app@$PROJECT_VERSION/hpkl-k8s-app@$PROJECT_VERSION.zip
   hpkl:
     runs-on: ubuntu-latest
