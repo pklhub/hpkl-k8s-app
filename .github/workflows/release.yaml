@@ -39,9 +39,8 @@ jobs:
         env:
           PROJECT_VERSION: ${{ steps.vars.outputs.tag }}      
         run: |
-          pkl project resolve
-          cat PklProject.deps.json
-          pkl project package
+          pkl project resolve --no-cache
+          pkl project package --no-cache
           gh release upload v$PROJECT_VERSION .out/hpkl-k8s-app@$PROJECT_VERSION/hpkl-k8s-app@$PROJECT_VERSION.zip
       - uses: actions/checkout@v4
         with:
