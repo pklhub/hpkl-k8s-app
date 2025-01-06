@@ -6,7 +6,7 @@ package {
   name = project.name
   baseUri = "package://ghcr.io/hpklio/\(name)"
   version = project.version
-  packageZipUrl = "https://github/hpklio/\(name)/releases/download/v\(version)/\(name)@\(version).zip"
+  packageZipUrl = "https://github.com/hpklio/\(name)/releases/download/v\(version)/\(name)@\(version).zip"
 }
 
 dependencies {
