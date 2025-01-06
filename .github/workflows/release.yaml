@@ -38,7 +38,7 @@ jobs:
         run: |
           pkl project resolve
           pkl project package
-          gh release upload $PROJECT_VERSION .out/hpkl-k8s-app@$PROJECT_VERSION/hpkl-k8s-app@$PROJECT_VERSION.zip
+          gh release upload v$PROJECT_VERSION .out/hpkl-k8s-app@$PROJECT_VERSION/hpkl-k8s-app@$PROJECT_VERSION.zip
   hpkl:
     runs-on: ubuntu-latest
     steps:
