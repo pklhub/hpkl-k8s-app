@@ -14,6 +14,7 @@ class ClassElement {
 
 class SkipValue {}
 const SKIP = new SkipValue {}
+const moduleClazz = reflect.Class(Module)
 
 class SecretRenderer {
   function renderSecrets(value: Typed): Dynamic = render(value, true)
@@ -25,7 +26,7 @@ class SecretRenderer {
     p.annotations.findOrNull((a) -> a.getClass() == NamedField)?.getProperty("name") ?? name
 
   function collectProperties(clazz: reflect.Class): Map<String, reflect.Property> =
-    if (clazz.superclass != null)
+    if (clazz.superclass != null && clazz.superclass != moduleClazz)
       collectProperties(clazz.superclass) + clazz.properties
     else clazz.properties
 
