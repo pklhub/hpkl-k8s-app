@@ -1,5 +1,0 @@
-typealias LEVEL = "TRACE" | "DEBUG" | "INFO" | "WARN" | "ERROR" | "FATAL" | "OFF"
-
-class Logging {
-  level: Mapping<String, LEVEL>
-}

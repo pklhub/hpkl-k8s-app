@@ -21,13 +21,4 @@ tests {
   "tests/nginx.pkl"
   "tests/renderer.pkl"
   "tests/spring-application.pkl"
-  "spring/tests/kafka.pkl"
-  "spring/tests/couchbase.pkl"
-  "spring/tests/datasource.pkl"
-  "spring/tests/redis.pkl"
-  "spring/tests/flyway.pkl"
-  "spring/tests/grpc.pkl"
-  "spring/tests/r2dbc.pkl"
-  "spring/tests/logging.pkl"
-  "spring/tests/security.pkl"
 }
