@@ -4,7 +4,7 @@ import "PklProject.settings.pkl" as project
 
 package {
   name = project.name
-  baseUri = "package://ghcr.io/hpklio/\(name)"
+  baseUri = "package://ghcr.io/pklhub/\(name)"
   version = project.version
   packageZipUrl = "https://github.com/hpklio/\(name)/releases/download/v\(version)/\(name)@\(version).zip"
 }
