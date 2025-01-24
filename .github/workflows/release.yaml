@@ -34,7 +34,7 @@ jobs:
           chmod +x $HOME/.local/bin/pkl
       - name: Replace baseUri
         run: |
-          sed -i -e 's/package\:\/\/ghcr.io\/hpklio\/\\(name)/package\:\/\/pkg.hpkl.io\/\\(name)/g' PklProject
+          sed -i -e 's/package\:\/\/ghcr.io\/pklhub\/\\(name)/package\:\/\/pkg.hpkl.io\/\\(name)/g' PklProject
       - name: Build & Publish
         env:
           PROJECT_VERSION: ${{ steps.vars.outputs.tag }}      
@@ -44,7 +44,7 @@ jobs:
           gh release upload v$PROJECT_VERSION .out/hpkl-k8s-app@$PROJECT_VERSION/hpkl-k8s-app@$PROJECT_VERSION.zip
       - uses: actions/checkout@v4
         with:
-          repository: hpklio/packages
+          repository: pklhub/packages
           ref: 'main'
           token:  ${{ secrets.PUBLISH_TOKEN }}    
           path: 'packages'
@@ -78,7 +78,7 @@ jobs:
           chmod +x $HOME/.local/bin/pkl
       - name: Download hpkl
         run:  |
-          curl -sSL https://github.com/hpklio/hpkl/releases/download/v${HPKL_VERSION}/hpkl_Linux_x86_64.tar.gz | tar -xz -C $HOME/.local/bin/ hpkl
+          curl -sSL https://github.com/pklhub/hpkl/releases/download/v${HPKL_VERSION}/hpkl_Linux_x86_64.tar.gz | tar -xz -C $HOME/.local/bin/ hpkl
       - name: Build & Publish
         env:
           PROJECT_VERSION: ${{ steps.vars.outputs.tag }}      

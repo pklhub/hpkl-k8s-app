@@ -101,7 +101,7 @@ examples {
               parameters = null
             }
             ref = null
-            repoURL = "https://github.com/hpklio/app.git"
+            repoURL = "https://github.com/pklhub/app.git"
             targetRevision = "HEAD"
           }
           sources = null

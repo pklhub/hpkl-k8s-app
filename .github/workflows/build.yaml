@@ -26,7 +26,7 @@ jobs:
           chmod +x $HOME/.local/bin/pkl
       - name: Download hpkl
         run:  |
-          curl -sSL https://github.com/hpklio/hpkl/releases/download/v${HPKL_VERSION}/hpkl_Linux_x86_64.tar.gz | tar -xz -C $HOME/.local/bin/ hpkl
+          curl -sSL https://github.com/pklhub/hpkl/releases/download/v${HPKL_VERSION}/hpkl_Linux_x86_64.tar.gz | tar -xz -C $HOME/.local/bin/ hpkl
       - name: Download sops
         run: |
           curl -sSL https://github.com/mozilla/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux -o $HOME/.local/bin/sops
