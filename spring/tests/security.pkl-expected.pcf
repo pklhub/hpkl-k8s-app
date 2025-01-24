@@ -1,0 +1,49 @@
+examples {
+  ["Spring seurity is compiling"] {
+    new {
+      oauth2 {
+        resourceserver {
+          jwt {
+            jwkSetUri = "https://issuer.address/keys"
+            jwsAlgorithms {
+              "RS256"
+            }
+            issuerUri = "https://issuer.address"
+            publicKeyLocation = null
+            audiences {}
+          }
+          opaqueToken {
+            clientId = null
+            clientSecret = null
+            introspectionUri = null
+          }
+        }
+        client {
+          registration {
+            ["name"] {
+              provider = "name"
+              clientId = "232323"
+              clientSecret = "232323"
+              authorizationGrantType = "authorization_code"
+              scope = Set("openid", "profile")
+              redirectUri = "https://issuer.address/redirect"
+              clientAuthenticationMethod = null
+              clientName = null
+            }
+          }
+          provider {
+            ["name"] {
+              issuerUri = "https://issuer.address"
+              jwkSetUri = "https://issuer.address/keys"
+              authorizationUri = null
+              tokenUri = null
+              userInfoUri = null
+              userInfoAuthenticationMethod = null
+              userNameAttribute = null
+            }
+          }
+        }
+      }
+    }
+  }
+}

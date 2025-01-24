@@ -1,0 +1,60 @@
+examples {
+  ["Flyway Config is compiling"] {
+    new {
+      enabled = null
+      failOnMissingLocations = null
+      locations = null
+      encoding = null
+      connectRetries = null
+      connectRetriesInterval = null
+      lockRetryCount = null
+      defaultSchema = null
+      schemas = null
+      table = null
+      tablespace = null
+      baselineDescription = null
+      baselineVersion = "1"
+      installedBy = null
+      placeholders = null
+      placeholderPrefix = null
+      placeholderSuffix = null
+      placeholderSeparator = null
+      placeholderReplacement = null
+      sqlMigrationPrefix = null
+      sqlMigrationSuffixes = null
+      sqlMigrationSeparator = null
+      repeatableSqlMigrationPrefix = null
+      target = null
+      user = null
+      password = null
+      driverClassName = null
+      url = null
+      initSqls = null
+      baselineOnMigrate = null
+      cleanDisabled = null
+      cleanOnValidationError = null
+      group = null
+      mixed = null
+      outOfOrder = null
+      skipDefaultCallbacks = null
+      skipDefaultResolvers = null
+      validateMigrationNaming = null
+      validateOnMigrate = null
+      scriptPlaceholderPrefix = null
+      scriptPlaceholderSuffix = null
+      executeInTransaction = null
+      loggers = null
+      batch = null
+      dryRunOutput = null
+      errorOverrides = null
+      stream = null
+      jdbcProperties = null
+      kerberosConfigFile = null
+      outputQueryResults = null
+      skipExecutingMigrations = null
+      ignoreMigrationPatterns = null
+      detectEncoding = null
+      communityDbSupportEnabled = null
+    }
+  }
+}

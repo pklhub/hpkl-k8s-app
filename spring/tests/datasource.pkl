@@ -1,0 +1,26 @@
+amends "pkl:test"
+
+import "../datasource.pkl"
+
+examples {
+    ["DataSource Config is compiling"] {
+        new datasource.Config {
+            username = "test"
+            password = "password"
+            url = "jdbc://host:port/database"
+            hikari {
+                dataSourceProperties {
+                    tcpKeepAlive = true
+                }
+            }
+        }
+    }
+    ["DataSource Config without Properties"] {
+        new datasource.Config {
+            username = "test"
+            password = "password"
+            url = "jdbc://host:port/database"
+            hikari {}
+        }
+    }    
+}

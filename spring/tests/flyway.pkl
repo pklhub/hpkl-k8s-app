@@ -1,0 +1,11 @@
+amends "pkl:test"
+
+import "../flyway.pkl"
+
+examples {
+    ["Flyway Config is compiling"] {
+        new flyway.Config {
+            baselineVersion = "1"
+        }
+    }
+}

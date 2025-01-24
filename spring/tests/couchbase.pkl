@@ -1,0 +1,13 @@
+amends "pkl:test"
+
+import "../couchbase.pkl"
+
+examples {
+    ["Couchbase Config is compiling"] {
+        new couchbase.Config {
+            username = "test"
+            password = "password"
+            connectionString = "host1:5656"
+        }
+    }
+}

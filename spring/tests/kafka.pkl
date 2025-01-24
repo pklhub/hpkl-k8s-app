@@ -1,0 +1,25 @@
+amends "pkl:test"
+
+import "../kafka.pkl"
+
+examples {
+    ["Kafka Config is compiling"] {
+        new kafka.Config {
+             groupId = "TestGroup"
+             consumer {
+                autoOffsetReset = "earliest"
+             }
+        }
+    }
+}
+
+facts {
+  ["Kafka Config set auoreset"] {
+    new kafka.Config {
+      groupId = "TestGroup"
+      consumer {
+        autoOffsetReset = "earliest"
+      }
+    }.consumer.autoOffsetReset == "earliest"
+  }   
+}

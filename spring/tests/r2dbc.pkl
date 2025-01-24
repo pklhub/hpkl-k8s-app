@@ -1,0 +1,13 @@
+amends "pkl:test"
+
+import "../r2dbc.pkl"
+
+examples {
+    ["DataSource Config is compiling"] {
+        new r2dbc.Config {
+            username = "test"
+            password = "password"
+            url = "r2dbc://host:port/database"
+        }
+    }
+}

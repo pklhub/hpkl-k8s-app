@@ -1,0 +1,61 @@
+import "../renderer.pkl"
+
+open class Config {
+    enabled: Boolean?
+    failOnMissingLocations: Boolean?
+    locations: Listing<String>?
+    encoding: String?
+    connectRetries: UInt16?
+    connectRetriesInterval: Duration?
+    lockRetryCount: UInt16?
+    defaultSchema: String?
+    schemas: Listing<String>?
+    table: String?
+    tablespace: String?
+    baselineDescription: String?
+    baselineVersion: String?
+    installedBy: String?
+    placeholders: Mapping<String, String>?
+    placeholderPrefix: String?
+    placeholderSuffix: String?
+    placeholderSeparator: String?
+    placeholderReplacement: Boolean?
+    sqlMigrationPrefix: String?
+    sqlMigrationSuffixes: Listing<String>?
+    sqlMigrationSeparator: String?
+    repeatableSqlMigrationPrefix: String?
+    target: String?
+    user: String?
+
+    @renderer.SecretField
+    password: String?
+
+    driverClassName: String?
+    url: String?
+    initSqls: Listing<String>?
+    baselineOnMigrate: Boolean?
+    cleanDisabled: Boolean?
+    cleanOnValidationError: Boolean?
+    group: Boolean?
+    mixed: Boolean?
+    outOfOrder: Boolean?
+    skipDefaultCallbacks: Boolean?
+    skipDefaultResolvers: Boolean?
+    validateMigrationNaming: Boolean?
+    validateOnMigrate: Boolean?
+    scriptPlaceholderPrefix: String?
+    scriptPlaceholderSuffix: String?
+    executeInTransaction: Boolean?
+    loggers: Listing<String>?
+    batch: Boolean?
+    dryRunOutput: String?
+    errorOverrides: Listing<String>?
+    stream: Boolean?
+    jdbcProperties: Mapping<String, String>?
+    kerberosConfigFile: String?
+    outputQueryResults: Boolean?
+    skipExecutingMigrations: Boolean?
+    ignoreMigrationPatterns: Listing<String>?
+    detectEncoding: Boolean?
+    communityDbSupportEnabled: Boolean?
+}

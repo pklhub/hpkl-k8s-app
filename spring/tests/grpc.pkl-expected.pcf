@@ -1,0 +1,9 @@
+examples {
+  ["DataSize rendering works"] {
+    """
+    address: dns:///host
+    negotiationType: TLS
+    maxInboundMessageSize: 10MB
+    """
+  }
+}

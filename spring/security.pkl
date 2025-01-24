@@ -1,0 +1,73 @@
+import "../renderer.pkl"
+
+class Config {
+  oauth2: OAuth2?
+}
+
+class OAuth2 {
+  resourceserver: OAuth2ResourceServerProperties?
+  client: OAuth2Client?
+}
+
+class OAuth2ResourceServerProperties {
+    jwt: Jwt = new Jwt {}
+    opaqueToken: Opaquetoken = new Opaquetoken{}
+}
+
+class Opaquetoken {
+    clientId: String?
+    clientSecret: String?
+    introspectionUri: String?
+}
+
+class Jwt {
+    jwkSetUri: String?
+    jwsAlgorithms: Listing<String> =  new Listing { "RS256" }
+    issuerUri: String?
+    publicKeyLocation: String?
+    audiences: Listing<String>
+}
+
+class OAuth2Client {
+  registration: Mapping<String, Registration>
+  provider:  Mapping<String, Provider>
+}
+
+class Registration {
+  provider: String
+
+  @renderer.NamedField{name = "client-id"}
+  clientId: String?
+
+  @renderer.NamedField{name = "client-secret"}
+  @renderer.SecretField
+  clientSecret: String?
+
+  @renderer.NamedField{name = "authorization-grant-type"}
+  authorizationGrantType: String = "authorization_code"
+
+  scope: Set<String> = Set("openid")
+
+  redirectUri: String?
+
+  clientAuthenticationMethod: String?
+  
+  clientName: String?
+
+}
+
+class Provider {
+  issuerUri: String?
+
+  jwkSetUri: String?
+
+  authorizationUri: String?
+
+  tokenUri: String?
+
+  userInfoUri: String?
+
+  userInfoAuthenticationMethod: String?
+
+  userNameAttribute: String?
+}

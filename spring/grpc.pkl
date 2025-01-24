@@ -1,0 +1,32 @@
+open class Channel {
+    address: String?
+    negotiationType: "TLS"| "PLAINTEXT" = "TLS"
+    defaultLoadBalancingPolicy: String?
+    immediateConnectTimeout: Duration?
+    enableKeepAlive: Boolean?
+    keepAliveTime: Duration?
+    keepAliveTimeout: Duration?
+    keepAliveWithoutCalls: Boolean?
+    maxInboundMessageSize: DataSize?
+    shutdownGracePeriod: Duration?
+}
+
+open class Server {
+    port: UInt16?
+    inProcessName: String?
+    address: String?
+    keepAliveTime: Duration?
+    keepAliveTimeout: Duration?
+    maxConnectionAge: Duration?
+    maxConnectionAgeGrace: Duration?
+    maxConnectionIdle: Duration?
+    maxInboundMessageSize: DataSize?
+    maxInboundMetadataSize: DataSize?
+    permitKeepAliveTime: Duration?
+    shutdownGracePeriod: Duration?
+    enableKeepAlive: Boolean?
+    healthServiceEnabled: Boolean?
+    reflectionServiceEnabled: Boolean?
+    permitKeepAliveWithoutCalls: Boolean?
+
+}
