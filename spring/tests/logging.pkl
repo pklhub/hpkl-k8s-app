@@ -1,0 +1,13 @@
+amends "pkl:test"
+
+import "../logging.pkl"
+
+examples {
+    ["Logging is compiling"] {
+        new logging.Logging {
+            level {
+                ["*"] = "ERROR"
+            }
+        }
+    }
+}

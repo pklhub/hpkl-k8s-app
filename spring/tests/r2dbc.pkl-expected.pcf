@@ -1,0 +1,26 @@
+examples {
+  ["DataSource Config is compiling"] {
+    new {
+      name = null
+      generateUniqueName = false
+      url = "r2dbc://host:port/database"
+      username = "test"
+      password = "password"
+      properties {}
+      pool {
+        minIdle = 0
+        maxIdleTime = 30.min
+        maxLifeTime = null
+        maxAcquireTime = null
+        maxValidationTime = null
+        maxCreateConnectionTime = null
+        initialSize = 10
+        maxSize = 10
+        validationQuery = null
+        validationDepth = "LOCAL"
+        enabled = true
+      }
+      uniqueName = null
+    }
+  }
+}

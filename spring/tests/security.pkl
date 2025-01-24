@@ -1,0 +1,36 @@
+amends "pkl:test"
+
+import "../security.pkl"
+
+examples {
+    ["Spring seurity is compiling"] {
+        new security.Config {
+            oauth2 {
+                resourceserver {
+                    jwt {
+                        issuerUri = "https://issuer.address"
+                        jwkSetUri = "https://issuer.address/keys"
+                    }
+                }
+                client {
+                    registration {
+                      ["name"] {
+                        clientId = "232323"
+                        clientSecret = "232323"
+                        scope = Set("openid","profile")
+                        provider = "name"
+                        redirectUri = "https://issuer.address/redirect"
+                        authorizationGrantType = "authorization_code"
+                      }
+                    }
+                    provider {
+                      ["name"] {
+                        issuerUri = "https://issuer.address"
+                        jwkSetUri = "https://issuer.address/keys"
+                      }
+                    }
+                }
+            }
+        }
+    }
+}

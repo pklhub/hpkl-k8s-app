@@ -1,0 +1,162 @@
+import "../renderer.pkl"
+
+open class Config {
+    bootstrapServers: Listing<String>?
+    clientId: String?
+    groupId: String
+    properties: Mapping<String, String>?
+    consumer: ConsumerConfig?
+    producer: ProducerConfig?
+    admin: AdminConfig?
+    streams: StreamsConfig?
+    listener: ListenerConfig?
+    ssl: SslConfig?
+
+    @renderer.SecretField
+    jaas: JaasConfig?
+
+    template: TemplateConfig?
+    security: SecurityConfig?
+    retry: RetryConfig?
+}
+
+typealias IsolationLevel = "READ_COMMITTED" | "READ_UNCOMMITTED"
+typealias AutoOffsetReset = "earliest" | "latest"
+
+open class ConsumerConfig {
+    ssl: SslConfig?
+    security: SecurityConfig?
+
+    autoCommitInterval: Duration?
+    autoOffsetReset: AutoOffsetReset?
+    bootstrapServers: Listing<String>?
+    clientId: String?
+    groupId: String?
+    enableAutoCommit: Boolean?
+    fetchMaxWait: Duration?
+    fetchMinSize: DataSize?
+    heartbeatInterval: Duration?
+    isolationLevel: IsolationLevel?
+    keyDeserializer: String?
+    valueDeserializer: String?
+    properties: Mapping<String, String>?
+}
+
+open class ProducerConfig {
+    ssl: SslConfig?
+    security: SecurityConfig?
+    acks: String?
+    batchSize: DataSize?
+    bootstrapServers: Listing<String>?
+    bufferMemory: DataSize?
+    clientId: String?
+    compressionType: String?
+    keySerializer: String?
+    valueSerializer: String?
+    retries: Int32
+    transactionIdPrefix: String?
+    properties: Mapping<String, String>?
+}
+
+open class AdminConfig {
+    ssl: SslConfig?
+    security: SecurityConfig?
+    clientId: String?
+    closeTimeout: Duration?
+    operationTimeout: Duration?
+    failFast: Boolean?
+    modifyTopicConfigs: Boolean?
+    properties: Mapping<String, String>?
+}
+
+open class StreamsConfig {
+    ssl: SslConfig?
+    security: SecurityConfig?
+    applicationId: String?
+    autoStartup: Boolean?
+    bootstrapServers: Listing<String>?
+    stateStoreCacheMaxSize: DataSize?
+    clientId: String?
+    replicationFactor: UInt16
+    stateDir: String?
+    properties: Mapping<String, String>?
+}
+
+typealias AckMode = "RECORD"|"BATCH"|"TIME"|"COUNT"|"COUNT_TIME"|"MANUAL"|"MANUAL_IMMEDIATE"
+typealias ListenerType = "SINGLE"|"BATCH"
+
+open class ListenerConfig {
+    type: ListenerType?
+    ackMode: AckMode?
+    asyncAcks: Boolean?
+    clientId: String?
+    concurrency: UInt16?
+    pollTimeout: Duration?
+    noPollThreshold: Float?
+    ackCount: UInt32?
+    ackTime: Duration?
+    idleBetweenPolls: Duration?
+    idleEventInterval: Duration?
+    idlePartitionEventInterval: Duration?
+    monitorInterval: Duration?
+    logContainerConfig: Boolean?
+    missingTopicsFatal: Boolean?
+    immediateStop: Boolean?
+    autoStartup: Boolean?
+    changeConsumerThreadName: Boolean?
+    observationEnabled: Boolean?
+}
+
+
+open class SecurityConfig {
+    protocol: String?
+}
+
+open class SslConfig {
+    bundle: String?
+
+    @renderer.SecretField
+    keyPassword: String?
+
+    keyStoreCertificateChain: String?
+    keyStoreKey: String?
+    keyStoreLocation: String?
+
+    @renderer.SecretField
+    keyStorePassword: String?
+
+    keyStoreType: String?
+    trustStoreCertificates: String?
+    trustStoreLocation: String?
+
+    @renderer.SecretField
+    trustStorePassword: String?
+
+    trustStoreType: String
+    protocol: String
+}
+
+open class JaasConfig {
+    enabled: Boolean?
+    loginModule: String?
+    options: Mapping<String, String>?
+}
+
+open class TemplateConfig {
+    defaultTopic: String?
+    transactionIdPrefix: String?
+    observationEnabled: Boolean?
+}
+
+open class RetryConfig {
+    topic: RetryTopicConfig
+}
+
+open class RetryTopicConfig {
+    enabled: Boolean?
+    attempts: UInt16?
+    delay: Duration?
+    multiplier: Float
+    maxDelay: Duration?
+    randomBackOff: Boolean?
+}

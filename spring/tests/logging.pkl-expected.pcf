@@ -1,0 +1,9 @@
+examples {
+  ["Logging is compiling"] {
+    new {
+      level {
+        ["*"] = "ERROR"
+      }
+    }
+  }
+}

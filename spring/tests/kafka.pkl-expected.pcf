@@ -1,0 +1,36 @@
+examples {
+  ["Kafka Config is compiling"] {
+    new {
+      bootstrapServers = null
+      clientId = null
+      groupId = "TestGroup"
+      properties = null
+      consumer {
+        ssl = null
+        security = null
+        autoCommitInterval = null
+        autoOffsetReset = "earliest"
+        bootstrapServers = null
+        clientId = null
+        groupId = null
+        enableAutoCommit = null
+        fetchMaxWait = null
+        fetchMinSize = null
+        heartbeatInterval = null
+        isolationLevel = null
+        keyDeserializer = null
+        valueDeserializer = null
+        properties = null
+      }
+      producer = null
+      admin = null
+      streams = null
+      listener = null
+      ssl = null
+      jaas = null
+      template = null
+      security = null
+      retry = null
+    }
+  }
+}

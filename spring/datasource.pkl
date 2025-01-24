@@ -1,0 +1,37 @@
+import "../renderer.pkl"
+
+open class Hikari {
+    @renderer.NamedField{ name="connection-test-query" }
+    connectionTestQuery: String?
+
+    @renderer.NamedField{ name="keepalive-time" }
+    keepaliveTime: UInt16 = 1
+
+    @renderer.NamedField{ name="minimum-idle" }
+    minimumIdle: UInt16 = 1
+
+    @renderer.NamedField{ name="maximum-pool-size" }
+    maximumPoolSize: UInt16 = 5
+
+    @renderer.NamedField{ name="data-source-properties" }
+    dataSourceProperties: Dynamic?
+}
+
+typealias InitializationMode = "never"|"always"
+
+open class Config {
+    @renderer.NamedField{ name="driver-class-name" }
+    driverClassName: String?
+
+    url: String(startsWith("jdbc:"))
+
+    username: String
+
+    @renderer.SecretField
+    password: String
+
+    @renderer.NamedField{ name="initialization-mode" }
+    initializationMode: InitializationMode?
+
+    hikari: Hikari?
+}

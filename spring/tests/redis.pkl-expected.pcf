@@ -1,0 +1,20 @@
+examples {
+  ["Redis Config is compiling"] {
+    new {
+      url = "host1:5656"
+      host = null
+      username = "test"
+      password = "password"
+      port = null
+      database = null
+      timeout = null
+      connectTimeout = null
+      clientName = null
+      clientType = null
+      cluster = null
+      ssl = null
+      jedis = null
+      lettuce = null
+    }
+  }
+}

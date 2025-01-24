@@ -1,0 +1,10 @@
+examples {
+  ["Couchbase Config is compiling"] {
+    new {
+      connectionString = "host1:5656"
+      username = "test"
+      password = "password"
+      env = null
+    }
+  }
+}
