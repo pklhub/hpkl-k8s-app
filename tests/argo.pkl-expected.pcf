@@ -42,7 +42,7 @@ examples {
           clusterName = null
         }
         source {
-          repoURL = "https://github.com/hpklio/app.git"
+          repoURL = "https://github.com/pklhub/app.git"
           path = "/"
           targetRevision = "HEAD"
         }
